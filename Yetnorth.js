@@ -5,8 +5,8 @@
 // @description  playlist downlader
 // @author       Nextsoul
 // @match        https://vk.com/audios*
-// @downloadURL  none
-// @updateURL    none
+// @downloadURL  https://raw.githubusercontent.com/left2x/Yetnorth/master/Yetnorth.js
+// @updateURL    https://raw.githubusercontent.com/left2x/Yetnorth/master/Yetnorth.js
 // @grant        none
 // ==/UserScript==
 
