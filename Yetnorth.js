@@ -18,7 +18,7 @@ function downladerMain() {
     function drawPannel() {
         var div = document.createElement('div');
         div.className = "page_block listDld";
-        div.innerHTML = " Внимание! Для корректного получения списка треков необходимо проскролить до самого конца страницы.   ";
+        div.innerHTML = " Внимание! Для корректного получения списка треков необходимо проскролить до самого конца страницы.";
         var elements = document.getElementsByClassName("_audio_page_content_block_wrap audio_page_content_block_wrap");
         var reqElement = elements[0];
         var parentDiv = reqElement.parentNode;
@@ -41,7 +41,7 @@ function downladerMain() {
         button.style.textDecoration = "none";
         button.style.display = "inline-block";
         button.style.fontSize = "12.5px";
-        button.style.margin = "4px 2px";
+        button.style.margin = "4px 2px 2px 0px";
         button.style.cursor = "pointer";
         button.style.borderRadius = "3px";
         button.style.fontFamily = "-apple-system,BlinkMacSystemFont,Roboto,Open Sans,Helvetica Neue,sans-serif";
