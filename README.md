@@ -1,5 +1,5 @@
 <p align="center">
-        <img src="https://imgur.com/XVm3mdR" width="260" alt="Yetnorth" />
+        <img src="https://i.imgur.com/XVm3mdR.png" width="260" alt="Yetnorth" />
 </p>
 Качалка плейлиста из вк
 Установка
