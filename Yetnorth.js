@@ -1,10 +1,12 @@
 // ==UserScript==
 // @name         Yetnorth
 // @namespace    http://tampermonkey.net/
-// @version      1.4.88ar
-// @description  download your playlist!
+// @version      0.1a
+// @description  playlist downlader
 // @author       Nextsoul
 // @match        https://vk.com/audios*
+// @downloadURL  none
+// @updateURL    none
 // @grant        none
 // ==/UserScript==
 
@@ -113,7 +115,7 @@ if (window.loaded) {
     var inject = function() {
         window.loaded = 1;
         var script = document.createElement('script');
-        script.appendChild(document.createTextNode('(' + Yetnorth + ')();'));
+        script.appendChild(document.createTextNode('(' + drawPannel + ')();'));
         (document.body || document.head || document.documentElement).appendChild(script);
     };
 
