@@ -18,7 +18,7 @@ function downladerMain() {
     function drawPannel() {
         var div = document.createElement('div');
         div.className = "page_block listDld";
-        div.innerHTML = " Ура! Вы прочитали это важное сообщение. ";
+        div.innerHTML = " Внимание! Для корректного получения списка треков необходимо проскролить до самого конца страницы.   ";
         var elements = document.getElementsByClassName("_audio_page_content_block_wrap audio_page_content_block_wrap");
         var reqElement = elements[0];
         var parentDiv = reqElement.parentNode;
@@ -81,7 +81,7 @@ function downladerMain() {
 
         saveAs(sth, "songlist.txt");
     }
-    
+
     drawPannel();
 
 }
