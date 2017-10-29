@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Yetnorth
 // @namespace    http://tampermonkey.net/
-// @version      0.15a
+// @version      0.16a
 // @description  playlist downlader
 // @author       Nextsoul
 // @match        https://vk.com/audios*
