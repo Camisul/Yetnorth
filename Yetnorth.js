@@ -51,6 +51,7 @@ function downladerMain() {
 
         var artist = [];
         var songName = [];
+        var dwnLink = [];
 
         var readyForSearch = [];
 
@@ -59,24 +60,30 @@ function downladerMain() {
 
         rawName = document.getElementsByClassName("audio_row__title_inner _audio_row__title_inner");
         rawArtists = document.getElementsByClassName("audio_row__performer");
+        rawCover = document.getElementsByClassName("audio_row_with_cover");
 
         for (var i = 0; i < rawArtists.length; i++) {
             artist[i] = document.getElementsByClassName("audio_row__performer")[i].text;
         }
 
-        for (var i = 0; i < rawArtists.length; i++) {
+        for (i = 0; i < rawArtists.length; i++) {
             songName[i] = document.getElementsByClassName("audio_row__title_inner _audio_row__title_inner")[i].innerText;
         }
 
-        for (var i = 0; i < artist.length; i++) {
+        for (i = 0; i < artist.length; i++) {
             readyForSearch[i] = artist[i] + " - " + songName[i] + "\n";
         }
 
-
-
-        for (var i = 0; i < readyForSearch.length; i++) {
-            console.log(readyForSearch[i]);
+        for (i = 0; i < rawCover.length; i++) {
+            dwnLink[i] = geByClass1('_audio_row__action_get_link', rawCover[i]).href;
         }
+
+        for (i = 0; i < readyForSearch.length; i++) {
+            console.log(readyForSearch[i] + dwnLink[i]);
+        }
+
+        var dl_btn = geByClass1('_audio_row__action_get_link', audioEl);
+
         var sth = new Blob(readyForSearch,{type: "text/plain;charset=utf-8"});
 
         saveAs(sth, "songlist.txt");
