@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Yetnorth
 // @namespace    http://tampermonkey.net/
-// @version      0.16a
+// @version      0.17a
 // @description  playlist downlader
 // @author       Nextsoul
 // @match        https://vk.com/audios*
@@ -52,6 +52,7 @@ function downladerMain() {
         var artist = [];
         var songName = [];
         var dwnLink = [];
+        var dwnHref = [];
 
         var readyForSearch = [];
 
@@ -75,11 +76,13 @@ function downladerMain() {
         }
 
         for (i = 0; i < rawCover.length; i++) {
-            dwnLink[i] = geByClass1('_audio_row__action_get_link', rawCover[i]).href;
+
+            dwnLink[i] = geByClass1('_audio_row__action_get_link', rawCover[i]);
+            dwnHref[i] = dwnLink[i].href;
         }
 
         for (i = 0; i < readyForSearch.length; i++) {
-            console.log(readyForSearch[i] + dwnLink[i]);
+            console.log(readyForSearch[i] + dwnHref[i]);
         }
 
         var dl_btn = geByClass1('_audio_row__action_get_link', audioEl);
