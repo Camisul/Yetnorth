@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Yetnorth
 // @namespace    http://tampermonkey.net/
-// @version      0.17a
+// @version      0.18a
 // @description  playlist downlader
 // @author       Nextsoul
 // @match        https://vk.com/audios*
@@ -51,8 +51,8 @@ function downladerMain() {
 
         var artist = [];
         var songName = [];
-        var dwnLink = [];
-        var dwnHref = [];
+        var fullId = [];
+        var downladLink = [];
 
         var readyForSearch = [];
 
@@ -77,17 +77,16 @@ function downladerMain() {
 
         for (i = 0; i < rawCover.length; i++) {
 
-            dwnLink[i] = geByClass1('_audio_row__action_get_link', rawCover[i]);
-            dwnHref[i] = dwnLink[i].href;
+            fullId[i] = rawCover[i].dataset.fullId;
+            downladLink[i] = vkopt.audio.__full_audio_info_cache[fullId[i]].url;
         }
 
         for (i = 0; i < readyForSearch.length; i++) {
-            console.log(readyForSearch[i] + dwnHref[i]);
+            console.log(readyForSearch[i] + downladLink[i]);
         }
 
-        var dl_btn = geByClass1('_audio_row__action_get_link', audioEl);
 
-        var sth = new Blob(readyForSearch,{type: "text/plain;charset=utf-8"});
+        var sth = new Blob(readyForSearch+downladLink,{type: "text/plain;charset=utf-8"});
 
         saveAs(sth, "songlist.txt");
     }
