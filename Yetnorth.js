@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Yetnorth
 // @namespace    http://tampermonkey.net/
-// @version      0.19a
+// @version      0.20a
 // @description  playlist downlader
 // @author       Nextsoul
 // @match        https://vk.com/audios*
@@ -53,7 +53,7 @@ function downladerMain() {
         var songName = [];
         var fullId = [];
         var downladLink = [];
-
+        var downladInfo = [];
         var readyForSearch = [];
 
         var rawArtists = [];
