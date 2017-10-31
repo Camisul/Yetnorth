@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Yetnorth
 // @namespace    http://tampermonkey.net/
-// @version      0.18a
+// @version      0.19a
 // @description  playlist downlader
 // @author       Nextsoul
 // @match        https://vk.com/audios*
@@ -78,7 +78,8 @@ function downladerMain() {
         for (i = 0; i < rawCover.length; i++) {
 
             fullId[i] = rawCover[i].dataset.fullId;
-            downladLink[i] = vkopt.audio.__full_audio_info_cache[fullId[i]].url;
+            downladInfo[i] = vkopt.audio.__full_audio_info_cache[fullId[i]];
+            downladLink[i] = downladInfo[i].url;
         }
 
         for (i = 0; i < readyForSearch.length; i++) {
