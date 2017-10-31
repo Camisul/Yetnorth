@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Yetnorth
 // @namespace    http://tampermonkey.net/
-// @version      0.20a
+// @version      0.21a
 // @description  playlist downlader
 // @author       Nextsoul
 // @match        https://vk.com/audios*
@@ -75,6 +75,27 @@ function downladerMain() {
             readyForSearch[i] = artist[i] + " - " + songName[i] + "\n";
         }
 
+        function set_url(el){
+                var id = el.dataset["fullId"];
+                var info = vkopt.audio.__full_audio_info_cache[id];
+                    // если не в загруженной инфе и очередях загрузки
+                var hq = vkopt.audio.__hover_load_queue;
+                if (!info && vkopt.audio.__loading_queue.indexOf(id) == -1 &&  vkopt.audio.__load_queue.indexOf(id) == -1){
+                      var idx = hq.indexOf(id);
+                      if (idx == -1){ // не знаю возможно ли, но лучше добавлю проверку.
+                         hq.push(id);
+                         idx = hq.length - 1;
+                      }
+                      var start = Math.max(0, idx - 2);
+                      var end = Math.min(start + rawCover.length, hq.length) - start;
+                      var to_load = hq.splice(start, end);
+                      vkopt.audio.__load_queue = vkopt.audio.__load_queue.concat(to_load);
+                      vkopt.audio.load_audio_urls(); // запускаем процесс загрузки инфы об аудио из очереди
+                   }
+        }
+
+        set_url(rawCover[0]);
+
         for (i = 0; i < rawCover.length; i++) {
 
             fullId[i] = rawCover[i].dataset.fullId;
@@ -96,6 +117,26 @@ function downladerMain() {
 
 }
 
+
+
+function set_url(el){
+        var id = el.dataset["fullId"];
+        var info = vkopt.audio.__full_audio_info_cache[id];
+            // если не в загруженной инфе и очередях загрузки
+        var hq = vkopt.audio.__hover_load_queue;
+        if (!info && vkopt.audio.__loading_queue.indexOf(id) == -1 &&  vkopt.audio.__load_queue.indexOf(id) == -1){
+              var idx = hq.indexOf(id);
+              if (idx == -1){ // не знаю возможно ли, но лучше добавлю проверку.
+                 hq.push(id);
+                 idx = hq.length - 1;
+              }
+              var start = Math.max(0, idx - 2);
+              var end = Math.min(start + 5, hq.length) - start;
+              var to_load = hq.splice(start, end);
+              vkopt.audio.__load_queue = vkopt.audio.__load_queue.concat(to_load);
+              vkopt.audio.load_audio_urls(); // запускаем процесс загрузки инфы об аудио из очереди
+           }
+}
 
 if (window.loaded) {
     downladerMain();
