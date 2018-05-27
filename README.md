@@ -1,3 +1,6 @@
+# Unfinshed and never be worked on
+---------
+
 # Yetnorth
 
 Качалка плейлиста из вк
